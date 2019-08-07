@@ -1,0 +1,50 @@
+﻿using System.Collections;
+<<<<<<< HEAD
+using System.Collections.Generic;
+=======
+>>>>>>> h
+using UnityEngine;
+
+public class movecho : MonoBehaviour {
+    private chomanager theChoice;
+    private diamanager dm;
+<<<<<<< HEAD
+ //   public bool [] flag;    //어떤 선택지를 완료하면 true (보류)
+ //   public int i = 0;   //선택지 번호
+=======
+    public bool [] flag;
+    public int i = 0;
+>>>>>>> h
+    Dialogue.Chat cur;
+
+    void Start() { 
+        theChoice = FindObjectOfType<chomanager>();
+        dm = FindObjectOfType<diamanager>();
+    }
+
+    public void triggerChoice(Dialogue.Chat c)  {
+        cur = c;
+<<<<<<< HEAD
+ //       if (!flag[i]) {           
+            StartCoroutine(ACoroutine());
+   //     }
+    }
+
+    IEnumerator ACoroutine()  {
+  //      flag[i++] = true;
+=======
+        if (!flag[i]) {           
+            StartCoroutine(ACoroutine());
+        }
+    }
+
+    IEnumerator ACoroutine()  {
+        flag[i++] = true;
+>>>>>>> h
+        theChoice.ShowChoice(cur);
+        yield return new WaitUntil(() => !theChoice.choiceIng);
+
+        dm.sendresult(theChoice.GetResult());
+        dm.ShowDialogue();
+    }
+}
